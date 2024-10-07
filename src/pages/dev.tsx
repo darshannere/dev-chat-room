@@ -89,7 +89,7 @@ const Chat: React.FC = () => {
 
   const fetchConnectedUsers = async () => {
     try {
-      const response = await fetch('https://backend-web-chat-app.onrender.com/');
+      const response = await fetch(process.env.NEXT_PUBLIC_backend_url + 'api/connected-users');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -103,7 +103,7 @@ const Chat: React.FC = () => {
   useEffect(() => {
     fetchConnectedUsers();
     if (connected) {
-      const socket = new WebSocket('https://backend-web-chat-app.onrender.com/');
+      const socket = new WebSocket(process.env.NEXT_PUBLIC_backend_url+"");
       socket.onopen = () => {
         socket.send(JSON.stringify({ type: 'join', username }));
       };

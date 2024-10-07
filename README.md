@@ -2,6 +2,7 @@
 
 Dev Chat is a real-time chat room application built using WebSockets. It allows users to join the chat with a unique username and interact with others in real-time. The project is developed with Next.js using TypeScript and Tailwind CSS for styling. The UI components are sourced from ShadCN.
 
+![alt text](image.png)
 ## Features
 - Real-time messaging with WebSockets
 - Dynamic user interface with online user indicators
