@@ -50,7 +50,7 @@ function LoginForm({
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
+        <CardTitle className="text-2xl">Join Dev Chat!</CardTitle>
         <CardDescription>
           Enter your username below to join the chat.
         </CardDescription>
@@ -70,7 +70,7 @@ function LoginForm({
       </CardContent>
       <CardFooter>
         <Button className="w-full" onClick={onSubmit} disabled={!!error}>
-          Sign in
+          Join
         </Button>
       </CardFooter>
     </Card>
@@ -89,7 +89,7 @@ const Chat: React.FC = () => {
 
   const fetchConnectedUsers = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/connected-users');
+      const response = await fetch('https://backend-web-chat-app.onrender.com/');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -102,7 +102,6 @@ const Chat: React.FC = () => {
 
   useEffect(() => {
     fetchConnectedUsers();
-
     if (connected) {
       const socket = new WebSocket('https://backend-web-chat-app.onrender.com/');
       socket.onopen = () => {
